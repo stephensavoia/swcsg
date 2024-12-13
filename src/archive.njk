@@ -1,0 +1,11 @@
+---
+layout: layouts/base.njk
+title: "Archive"
+---
+
+<h1>{{ title }}</h1>
+<ul>
+{% for comic in comics %}
+<li><a href="/{{ comic.id }}">{{ comic.id }}</a></li>
+{% endfor %}
+</ul>

@@ -1,0 +1,14 @@
+---
+layout: layouts/base.njk
+title: "Archive"
+pagination:
+  data: comics
+  size: 1
+  alias: comic
+permalink: "{{ comic.id | slugify }}"
+eleventyAllowMissingExtension: true
+---
+
+<h1>{{ comic.id }}</h1>
+
+<img src="assets/img/{{ comic.id }}.jpg" width="300"/>
