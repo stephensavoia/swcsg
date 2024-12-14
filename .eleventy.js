@@ -1,5 +1,12 @@
 export default async function (eleventyConfig) {
-  eleventyConfig.addPassthroughCopy("src/assets/");
+  eleventyConfig.addPassthroughCopy("src/assets/css/");
+  eleventyConfig.addPassthroughCopy("src/assets/js/");
+  eleventyConfig.addPassthroughCopy({
+    "src/assets/img/other/": "assets/img/",
+  });
+  eleventyConfig.addPassthroughCopy({
+    "src/assets/img/comic/output/": "assets/img/comic/",
+  });
 
   eleventyConfig.addWatchTarget("src/assets/css/");
   eleventyConfig.addWatchTarget("src/assets/js/");
