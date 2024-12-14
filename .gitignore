@@ -125,3 +125,6 @@ dist
 
 # 11ty Site Build
 _site
+
+.DS_Store
+foo
