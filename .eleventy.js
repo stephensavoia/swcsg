@@ -1,6 +1,9 @@
 export default async function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/assets/");
 
+  eleventyConfig.addWatchTarget("src/assets/css/");
+  eleventyConfig.addWatchTarget("src/assets/js/");
+
   eleventyConfig.addCollection("comics", function (collection) {
     return collection.getAll();
   });

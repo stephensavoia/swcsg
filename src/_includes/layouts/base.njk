@@ -3,9 +3,10 @@
   <head>
     {% include "head.njk" %}
   </head>
-  <body style="background-color:#ddd;">
-    {% include "nav.njk" %}
+  <body>
+    {% include "header.njk" %}
     {{ content | safe }}
     {% include "footer.njk" %}
+    <script src="/assets/js/scripts.js"></script>
   </body>
 </html>
