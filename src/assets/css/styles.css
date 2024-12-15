@@ -170,6 +170,7 @@ input[type="checkbox"]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
   margin-top: -9px;
 }
 .menu {
+  align-self: flex-start;
   margin: 0;
   height: 100%;
   position: fixed;
@@ -229,6 +230,7 @@ main {
   }
 
   .menu {
+    align-self: inherit;
     margin-right: 20px;
     height: auto;
     position: relative;
