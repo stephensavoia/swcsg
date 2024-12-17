@@ -12,4 +12,4 @@ eleventyAllowMissingExtension: true
 <h1>{{ comic.id }}</h1>
 
 {% set comicImagePath = ["src/assets/img/comic/", comic.id, ".jpg"] | join %}
-{% image comicImagePath, "Bond, James Bond", "(min-width: 30em) 50vw, 100vw" %}
+{% image comicImagePath, comic.description, "(min-width: 30em) 50vw, 100vw" %}

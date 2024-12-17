@@ -3,12 +3,13 @@ import Image from "@11ty/eleventy-img";
 async function imageShortcode(src, alt, sizes) {
   let metadata = await Image(src, {
     widths: [300, 600],
-    formats: ["avif", "jpeg"],
+    formats: ["webp", "jpeg"],
     outputDir: "./_site/assets/img/comic",
     urlPath: "/assets/img/comic/",
     filenameFormat: function (hash, src, width, format) {
-      const baseSrc = src.split(".")[0];
-      return `${baseSrc}-${width}-${hash}.${format}`;
+      const baseSrc = src.split("/").pop().split(".")[0];
+      console.log(baseSrc);
+      return `${baseSrc}-${width}px-${hash}.${format}`;
     },
   });
 
