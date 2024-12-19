@@ -2,10 +2,15 @@
 layout: layouts/base.njk
 title: "Archive"
 ---
+<main class="archive">
+    <h1>{{ title }}</h1>
+    <div>
+        {% if comic.paginationDirection == "reverse" %}
+            {% set comics = comics | reverse %}
+        {% endif %}
 
-<h1>{{ title }}</h1>
-<ul>
-{% for comic in comics %}
-<li><a href="/{{ comic.id }}">{{ comic.id }}</a></li>
-{% endfor %}
-</ul>
+        {% for comic in comics %}
+            <a href="/{{ comic.id }}">{{ comic.id }}</a>{% if not loop.last %}  |  {% endif %}
+        {% endfor %}
+    </div>
+</main>

@@ -9,7 +9,9 @@ permalink: "{{ comic.id | slugify }}"
 eleventyAllowMissingExtension: true
 ---
 
-<h1>{{ comic.id }}</h1>
 
-{% set comicImagePath = ["src/assets/img/comic/", comic.id, ".jpg"] | join %}
-{% image comicImagePath, comic.description, "(min-width: 30em) 50vw, 100vw" %}
+<main class="about">
+  {% set comicImagePath = ["src/assets/img/comic/", comic.id, ".jpg"] | join %}
+  {% image comicImagePath, comic.description, "(min-width: 30em) 50vw, 100vw" %}
+  <h1>{{ comic.id }}</h1>
+</main>

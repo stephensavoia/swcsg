@@ -1,1 +1,10 @@
-<h2>Footer</h2>
+<footer>
+<ul>
+    {% for link in comic.footerLinks %}
+    <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+    {% endfor %}
+</ul>
+<ul>
+  <li id="footer-copyright">All Content © {{ comic.createdYear }}-{% year %}</li>
+</ul>
+</footer>

@@ -37,7 +37,6 @@ select {
 
 /* BASE */
 body {
-  background-color: #ddd;
   font-family: "Inter", sans-serif;
   margin: 0;
   padding: 0;
@@ -97,7 +96,7 @@ header {
   color: rgb(18, 18, 18);
 }
 .logo img {
-  max-width: 90px;
+  max-width: 100px;
   opacity: 1;
 }
 /* .logo img.first-load {
@@ -205,7 +204,7 @@ input[type="checkbox"]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
 }
 
 main {
-  margin-top: 70px;
+  margin-top: 4.5rem;
   overflow: auto;
 }
 
@@ -273,9 +272,93 @@ main {
   .sidebarIconToggle {
     display: none;
   }
-
   main {
     margin-top: 0;
   }
 }
 /* END OF HEADER */
+
+/* PAGE CONTENT */
+main {
+  padding: 0 20px;
+}
+main h1 {
+  font-weight: 400;
+  margin-bottom: 15px;
+}
+@media screen and (min-width: 920px) {
+  main {
+    max-width: 880px;
+    margin: 0 auto;
+  }
+}
+/* END OF PAGE CONTENT */
+
+/* FOOTER */
+footer {
+  padding: 35px 0 65px 0;
+  color: rgba(18, 18, 18, 0.75);
+  font-size: 0.95rem;
+}
+footer a {
+  text-decoration: none;
+}
+footer a:hover {
+  color: rgb(18, 18, 18);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+footer ul {
+  list-style-type: none;
+  padding: 0;
+  text-align: center;
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  unicode-bidi: isolate;
+}
+footer li {
+  padding: 0.55rem 0;
+  display: block;
+}
+footer ul:first-child {
+  margin-top: 0;
+}
+
+@media screen and (min-width: 920px) {
+  footer {
+    padding: 35px 20px 65px 20px;
+    color: rgba(18, 18, 18, 0.75);
+    font-size: 0.95rem;
+    max-width: 880px;
+    margin: 0 auto;
+  }
+  footer li {
+    padding: 0.2rem 0;
+    display: inline-block;
+    margin: 0 7px;
+  }
+  footer .left-grid-2,
+  footer footer .right-grid-2 {
+    text-align: center;
+    justify-self: center;
+    align-self: center;
+  }
+}
+/* END OF FOOTER */
+
+/* BR ARCHIVE */
+.archive a {
+  text-decoration: none;
+  line-height: 2;
+}
+.archive a:hover {
+  color: rgb(18, 18, 18);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+/* END OF BR ARCHIVE */
