@@ -1,4 +1,5 @@
 import responsiveImage from "./src/_includes/components/responsiveImage.js";
+import comicViewer from "./src/_includes/components/comicViewer.js";
 
 export default async function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/assets/css/");
@@ -8,8 +9,10 @@ export default async function (eleventyConfig) {
   });
 
   eleventyConfig.addNunjucksAsyncShortcode("image", responsiveImage);
+  eleventyConfig.addNunjucksShortcode("comicViewer", comicViewer);
   eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
 
+  eleventyConfig.addWatchTarget("src/");
   eleventyConfig.addWatchTarget("src/assets/css/");
   eleventyConfig.addWatchTarget("src/assets/js/");
 

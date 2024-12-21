@@ -350,7 +350,7 @@ footer ul:first-child {
 }
 /* END OF FOOTER */
 
-/* BR ARCHIVE */
+/* COMIC ARCHIVE */
 .archive a {
   text-decoration: none;
   line-height: 2;
@@ -361,4 +361,158 @@ footer ul:first-child {
   text-underline-offset: 3px;
   text-decoration-thickness: 1px;
 }
-/* END OF BR ARCHIVE */
+/* END OF COMIC ARCHIVE */
+
+/* COMIC VIEWER */
+.comic-viewer-container {
+  margin: 0 auto;
+}
+
+#comic-viewer-comic {
+  width: 100%;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+#comic-viewer-comic.hide-comic {
+  opacity: 0;
+}
+
+.comic-viewer-nav-links {
+  margin: 0 auto;
+  width: 96%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.comic-viewer-nav-links a,
+.comic-viewer-nav-links span {
+  margin: 0 10px;
+  color: rgba(18, 18, 18, 0.85);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  transition: all 500ms ease;
+}
+
+.comic-viewer-nav-links a:hover {
+  color: rgba(18, 18, 18, 1);
+}
+
+.comic-viewer-ad-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 88%;
+  margin: 0 auto;
+  max-width: 420px;
+}
+
+.comic-viewer-ad-button {
+  display: inline-block;
+  margin: 20px 0;
+  height: 50px;
+  width: 48%;
+  text-align: center;
+  background-color: rgba(191, 48, 69, 0.8);
+  color: rgb(255, 255, 255);
+  box-sizing: border-box;
+  line-height: 50px;
+  text-decoration: none;
+  font-size: 1.1rem;
+  letter-spacing: 0.1rem;
+  transition: all 500ms ease;
+}
+
+.comic-viewer-ad-button:hover {
+  background-color: rgba(191, 48, 69, 1);
+  color: rgb(255, 255, 255);
+}
+
+.comic-viewer-share-link {
+  display: block;
+  margin: 0 auto;
+  border: 2px solid rgba(18, 18, 18, 0.75);
+  color: #121212d9;
+  width: 88%;
+  max-width: 420px;
+  padding: 10px 0;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.1rem;
+  letter-spacing: 0.1rem;
+  transition: all 0.5s ease;
+  box-sizing: border-box;
+}
+
+.comic-viewer-share-link span {
+  color: rgba(18, 18, 18, 0.85);
+  transition: all 0.5s ease;
+}
+
+.comic-viewer-share-link:hover {
+  background-color: rgba(18, 18, 18, 0.1);
+  color: rgba(18, 18, 18, 1);
+  color: black;
+  transition: all 0.5s ease;
+}
+
+.comic-viewer-share-link span:hover {
+  color: rgba(18, 18, 18, 1);
+  transition: all 0.5s ease;
+}
+
+.comic-viewer-share-link span {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.comic-viewer-share-link svg {
+  display: inline-block;
+  width: 1.7rem;
+  margin-left: 5px;
+  vertical-align: middle;
+}
+
+.comic-viewer-description {
+  text-align: center;
+  margin: 30px auto 20px auto;
+  max-width: 650px;
+  padding: 0 20px;
+}
+
+.comic-viewer-description h2 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.comic-viewer-hidden-link {
+  visibility: hidden;
+}
+
+.preloadingComics img {
+  position: absolute;
+  top: 0;
+}
+
+@media screen and (min-width: 920px) {
+  .comic-viewer-container {
+    max-width: 880px;
+  }
+
+  .comic-container {
+    position: relative;
+    width: 100%;
+    height: 865px;
+    overflow: hidden;
+  }
+
+  #comic-viewer-comic {
+    position: absolute;
+    bottom: 0;
+  }
+
+  .comic-viewer-nav-links {
+    max-width: 440px;
+  }
+}
+/* END OF COMIC VIEWER */
