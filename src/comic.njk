@@ -18,13 +18,15 @@ eleventyAllowMissingExtension: true
 {% set nextComicId = pagination.page.previous.id %}
 {% set nextComicImagePath = ["src/assets/img/comic/", nextComic, ".jpg"] | join %}
 
-{% comicViewer id=comic.id,
-description=comic.description,
-imageUrl=comicImagePath,
-variantUrl="NULL",
-prevId=prevComicId,
-prevImageUrl=prevComicImagePath,
-nextId=nextComicId,
-nextImageUrl=nextComicImagePath,
-latestId=comics[0].id %}
+{% comicViewer
+  id=comic.id,
+  description=comic.description,
+  imageUrl=comicImagePath,
+  variantUrl="NULL",
+  prevId=prevComicId,
+  prevImageUrl=prevComicImagePath,
+  nextId=nextComicId,
+  nextImageUrl=nextComicImagePath,
+  latestId=comics[0].id
+  %}
 </main>
