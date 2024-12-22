@@ -51,76 +51,32 @@ export default async function comicViewer({
     </div>`;
   }
 
-  // let preloadingPrevComic;
-  // if (prevImageUrl) {
-  //   preloadingPrevComic = html`
-  //     <img
-  //       alt="preloading prev comic"
-  //       loading="eager"
-  //       decoding="async"
-  //       sizes="(min-width: 880px) 880px, 100vw"
-  //       style="
-  //           object-fit: cover;
-  //           max-width: 880px;
-  //           max-height: 880px;
-  //           aspect-ratio: 1;
-  //           width: 100%;
-  //         "
-  //       srcset="
-  //         ${prevImageUrl}&amp;width=640&amp;height=640    640w,
-  //         ${prevImageUrl}&amp;width=750&amp;height=750    750w,
-  //         ${prevImageUrl}&amp;width=828&amp;height=828    828w,
-  //         ${prevImageUrl}&amp;width=880&amp;height=880    880w,
-  //         ${prevImageUrl}&amp;width=960&amp;height=960    960w,
-  //         ${prevImageUrl}&amp;width=1080&amp;height=1080 1080w,
-  //         ${prevImageUrl}&amp;width=1280&amp;height=1280 1280w,
-  //         ${prevImageUrl}&amp;width=1668&amp;height=1668 1668w,
-  //         ${prevImageUrl}&amp;width=1760&amp;height=1760 1760w
-  //       "
-  //       src="${prevImageUrl}&amp;width=880&amp;height=880"
-  //     />
-  //   `;
-  // } else {
-  //   preloadingPrevComic = "";
-  // }
+  let preloadingPrevComic;
+  if (prevImageUrl) {
+    preloadingPrevComic = await responsiveImage(
+      prevImageUrl,
+      "preloading previous comic",
+      "(min-width: 749px) 840px, 100vw"
+    );
+  } else {
+    preloadingPrevComic = "";
+  }
 
-  // let preloadingNextComic;
-  // if (nextImageUrl) {
-  //   preloadingNextComic = html`
-  //     <img
-  //       alt="preloading next comic"
-  //       loading="lazy"
-  //       decoding="async"
-  //       sizes="(min-width: 880px) 880px, 100vw"
-  //       style="
-  //           object-fit: cover;
-  //           max-width: 880px;
-  //           max-height: 880px;
-  //           aspect-ratio: 1;
-  //           width: 100%;
-  //         "
-  //       srcset="
-  //         ${nextImageUrl}&amp;width=640&amp;height=640    640w,
-  //         ${nextImageUrl}&amp;width=750&amp;height=750    750w,
-  //         ${nextImageUrl}&amp;width=828&amp;height=828    828w,
-  //         ${nextImageUrl}&amp;width=880&amp;height=880    880w,
-  //         ${nextImageUrl}&amp;width=960&amp;height=960    960w,
-  //         ${nextImageUrl}&amp;width=1080&amp;height=1080 1080w,
-  //         ${nextImageUrl}&amp;width=1280&amp;height=1280 1280w,
-  //         ${nextImageUrl}&amp;width=1668&amp;height=1668 1668w,
-  //         ${nextImageUrl}&amp;width=1760&amp;height=1760 1760w
-  //       "
-  //       src="${nextImageUrl}&amp;width=880&amp;height=880"
-  //     />
-  //   `;
-  // } else {
-  //   preloadingNextComic = "";
-  // }
+  let preloadingNextComic;
+  if (nextImageUrl) {
+    preloadingNextComic = await responsiveImage(
+      nextImageUrl,
+      "preloading next comic",
+      "(min-width: 749px) 840px, 100vw"
+    );
+  } else {
+    preloadingNextComic = "";
+  }
 
   let currentComic = await responsiveImage(
     imageUrl,
     description,
-    "(min-width: 30em) 50vw, 100vw"
+    "(min-width: 749px) 840px, 100vw"
   );
 
   return html`
@@ -198,6 +154,12 @@ export default async function comicViewer({
         <div class="comic-viewer-description">
           <h2>Bright Red #${id}</h2>
           <p>${description}</p>
+        </div>
+        <div
+          class="preloadingComics"
+          style="visibility: hidden; position: absolute; top: 0"
+        >
+          ${preloadingPrevComic} ${preloadingNextComic}
         </div>
       </div>
     </main>

@@ -1,6 +1,5 @@
 ---
 layout: layouts/base.njk
-title: "Archive"
 pagination:
   data: comics
   size: 1
@@ -10,10 +9,15 @@ eleventyAllowMissingExtension: true
 ---
 
 {% set comicImagePath = ["src/assets/img/comic/", comic.id, ".jpg"] | join %}
+
 {% set prevComicId = pagination.page.next.id %}
-{% set prevComicImagePath = ["src/assets/img/comic/", prevComic, ".jpg"] | join %}
+{% if prevComicId %}
+  {% set prevComicImagePath = ["src/assets/img/comic/", prevComicId, ".jpg"] | join %}
+{% endif %}
 {% set nextComicId = pagination.page.previous.id %}
-{% set nextComicImagePath = ["src/assets/img/comic/", nextComic, ".jpg"] | join %}
+{% if nextComicId %}
+  {% set nextComicImagePath = ["src/assets/img/comic/", nextComicId, ".jpg"] | join %}
+{% endif %}
 
 {% comicViewer
   id=comic.id,

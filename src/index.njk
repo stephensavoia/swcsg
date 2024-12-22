@@ -1,23 +1,23 @@
 ---
 layout: layouts/base.njk
-title: "Index"
 ---
 
 {% if comic.paginationDirection == "reverse" %}
     {% set comics = comics | reverse %}
     {% set nextComicId = comics[1].id %}
-    {% set nextComicImagePath = ["src/assets/img/comic/", nextComicId, ".jpg"] | join %}
-    {% set prevComicImagePath = null %}
+    {% if nextComicId %}
+      {% set nextComicImagePath = ["src/assets/img/comic/", nextComicId, ".jpg"] | join %}
+    {% endif %}
     {% set latestComic = comics[comics | length - 1] %}
 {% else %}
     {% set prevComicId = comics[1].id %}
-    {% set prevComicImagePath = ["src/assets/img/comic/", prevComic, ".jpg"] | join %}
-    {% set nextComicImagePath = null %}
+    {% if prevComicId %}
+      {% set prevComicImagePath = ["src/assets/img/comic/", prevComicId, ".jpg"] | join %}
+    {% endif %}
     {% set latestComic = comics[0] %}
 {% endif %}
 
 {% set comicImagePath = ["src/assets/img/comic/", comics[0].id, ".jpg"] | join %}
-
 
 {% comicViewer
   id=comics[0].id,
@@ -29,6 +29,6 @@ title: "Index"
   nextImageUrl=nextComicImagePath,
   latestId=latestComic.id,
   comicTitle=comics[0].title,
-  comicUrl=comics[0].url,
-  tipJarUrl=comics[0].tipJarUrl
+  comicUrl=comic.url,
+  tipJarUrl=comic.tipJarUrl
   %}

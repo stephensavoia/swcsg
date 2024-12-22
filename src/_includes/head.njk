@@ -1,5 +1,27 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{{ title }}</title>
+<title>
+    {% if title %}
+    {{ title }}
+    {% else %}
+    {{ comic.title }}{% if pagination.items[0] %} #{{ pagination.items[0].id }}{% endif %}
+    {% endif %}
+</title>
+
+<meta name="description" content="{{ description }}{% if pagination.items[0] %}{{ pagination.items[0].description }}{% endif %}" />
+<meta name="og:url" content="{{ comic.url }}{{ slug }}" />
+<meta name="og:type" content="website" />
+<meta
+name="og:title"
+content="{% if title %}{{ title }}{% else %}{{ comic.title }}{% if pagination.items[0] %} #{{ pagination.items[0].id }}{% endif %}{% endif %}"
+/>
+<meta
+name="og:description"
+content="{{ description }}{% if pagination.items[0] %}{{ pagination.items[0].description }}{% endif %}"
+/>
+<meta
+name="og:image"
+content="{{ comic.socialMediaLogo}}"
+/>
 <link rel="icon" href="/favicon.ico" />
 <link rel="stylesheet" href="/assets/css/styles.css" />
