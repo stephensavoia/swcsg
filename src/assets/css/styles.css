@@ -1,3 +1,19 @@
+/* VARIABLES */
+:root {
+  --background-color: rgb(255, 255, 255);
+  --text-color-main: rgba(18, 18, 18, 0.75);
+  --text-color-main-link-hover: rgb(18, 18, 18);
+  --text-color-menu: rgba(18, 18, 18, 0.85);
+  --text-color-menu-hover: rgb(18, 18, 18);
+  --button-background-color: rgb(255, 255, 255);
+  --button-background-color-hover: rgba(18, 18, 18, 0.1);
+  --button-text-color: rgba(18, 18, 18, 0.85);
+  --button-text-color-hover: rgb(18, 18, 18);
+  --button-border-color: rgba(18, 18, 18, 0.75);
+  --button-border-color-hover: rgba(18, 18, 18, 0.75);
+}
+/* END OF VARIABLES */
+
 /* RESET */
 *,
 *::before,
@@ -40,15 +56,19 @@ body {
   font-family: "Inter", sans-serif;
   margin: 0;
   padding: 0;
-  color: rgba(18, 18, 18, 0.75);
+  color: var(--text-color-main);
   letter-spacing: 0.0375rem;
+  background-color: var(--background-color);
 }
 h2 {
   font-weight: 400;
   font-size: 1.8rem;
 }
 a {
-  color: rgba(18, 18, 18, 0.75);
+  color: var(--text-color-main);
+}
+a:hover {
+  color: var(--text-color-main-link-hover);
 }
 p {
   line-height: 1.45rem;
@@ -76,7 +96,7 @@ header {
   height: 4.5rem;
   overflow: hidden;
   z-index: 10;
-  background-color: rgb(255, 255, 255);
+  background-color: var(--background-color);
 }
 .logo {
   position: fixed;
@@ -91,9 +111,6 @@ header {
   letter-spacing: 0.6px;
   text-decoration: none;
   display: flex;
-}
-.logo a:hover {
-  color: rgb(18, 18, 18);
 }
 .logo img {
   max-width: 100px;
@@ -129,7 +146,7 @@ input[type="checkbox"] {
   position: absolute;
   height: 2px;
   width: 100%;
-  background-color: rgba(56, 56, 56);
+  background-color: var(--text-color-main);
 }
 .horizontal {
   transition: all 0.3s;
@@ -177,7 +194,7 @@ input[type="checkbox"]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
   width: 250px;
   margin-top: 70px;
   transition: transform 250ms ease-in-out;
-  background: rgb(255, 255, 255);
+  background: var(--background-color);
 }
 .menu.active {
   transform: translateX(-250px);
@@ -193,11 +210,11 @@ input[type="checkbox"]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
 }
 .menu a {
   text-decoration: none;
-  color: rgba(18, 18, 18, 0.85);
+  color: var(--text-color-menu);
   transition: all 800ms ease;
 }
 .menu a:hover {
-  color: rgb(18, 18, 18);
+  color: var(--text-color-menu-hover);
   text-decoration: underline;
   text-underline-offset: 3px;
   text-decoration-thickness: 2px;
@@ -213,7 +230,7 @@ main {
     position: relative;
     box-shadow: none;
     overflow: auto;
-    color: rgb(18, 18, 18);
+    color: var(--text-color-menu);
     padding: 0;
     display: flex;
     justify-content: space-between;
@@ -297,14 +314,14 @@ main h1 {
 /* FOOTER */
 footer {
   padding: 35px 0 65px 0;
-  color: rgba(18, 18, 18, 0.75);
+  color: var(--text-color-main);
   font-size: 0.95rem;
 }
 footer a {
   text-decoration: none;
 }
 footer a:hover {
-  color: rgb(18, 18, 18);
+  color: var(--text-color-main-link-hover);
   text-decoration: underline;
   text-underline-offset: 3px;
   text-decoration-thickness: 1px;
@@ -331,7 +348,7 @@ footer ul:first-child {
 @media screen and (min-width: 920px) {
   footer {
     padding: 35px 20px 65px 20px;
-    color: rgba(18, 18, 18, 0.75);
+    color: var(--text-color-main);
     font-size: 0.95rem;
     max-width: 880px;
     margin: 0 auto;
@@ -356,7 +373,7 @@ footer ul:first-child {
   line-height: 2;
 }
 .archive a:hover {
-  color: rgb(18, 18, 18);
+  color: var(--text-color-main-link-hover);
   text-decoration: underline;
   text-underline-offset: 3px;
   text-decoration-thickness: 1px;
@@ -368,18 +385,13 @@ footer ul:first-child {
   margin: 0 auto;
 }
 
-#comic-viewer-comic {
+.comic-viewer-container picture img {
   width: 100%;
-  opacity: 1;
-  transition: opacity 0.5s ease-in-out;
-}
-
-#comic-viewer-comic.hide-comic {
-  opacity: 0;
+  height: auto;
 }
 
 .comic-viewer-nav-links {
-  margin: 0 auto;
+  margin: 10px auto 0 auto;
   width: 96%;
   display: flex;
   justify-content: space-between;
@@ -388,7 +400,7 @@ footer ul:first-child {
 .comic-viewer-nav-links a,
 .comic-viewer-nav-links span {
   margin: 0 10px;
-  color: rgba(18, 18, 18, 0.85);
+  color: var(--text-color-menu);
   text-decoration: underline;
   text-underline-offset: 3px;
   text-decoration-thickness: 1px;
@@ -396,86 +408,73 @@ footer ul:first-child {
 }
 
 .comic-viewer-nav-links a:hover {
-  color: rgba(18, 18, 18, 1);
+  color: var(--text-color-menu-hover);
 }
 
 .comic-viewer-ad-buttons {
   display: flex;
   justify-content: space-between;
-  width: 88%;
   margin: 0 auto;
   max-width: 420px;
 }
 
-.comic-viewer-ad-button {
-  display: inline-block;
+.comic-viewer-tip-jar,
+.comic-viewer-share-link {
   margin: 20px 0;
   height: 50px;
   width: 48%;
   text-align: center;
-  background-color: rgba(191, 48, 69, 0.8);
-  color: rgb(255, 255, 255);
+  color: var(--button-text-color);
+  background-color: var(--button-background-color);
   box-sizing: border-box;
   line-height: 50px;
   text-decoration: none;
-  font-size: 1.1rem;
+  font-size: 1.075rem;
   letter-spacing: 0.1rem;
   transition: all 500ms ease;
-}
-
-.comic-viewer-ad-button:hover {
-  background-color: rgba(191, 48, 69, 1);
-  color: rgb(255, 255, 255);
-}
-
-.comic-viewer-share-link {
   display: block;
-  margin: 0 auto;
-  border: 2px solid rgba(18, 18, 18, 0.75);
-  color: #121212d9;
-  width: 88%;
-  max-width: 420px;
-  padding: 10px 0;
-  text-align: center;
-  text-decoration: none;
-  font-size: 1.1rem;
-  letter-spacing: 0.1rem;
-  transition: all 0.5s ease;
+  border: 2px solid var(--button-border-color);
   box-sizing: border-box;
 }
 
+.comic-viewer-tip-jar span,
 .comic-viewer-share-link span {
-  color: rgba(18, 18, 18, 0.85);
+  color: var(--button-text-color);
   transition: all 0.5s ease;
 }
 
+.comic-viewer-tip-jar:hover,
 .comic-viewer-share-link:hover {
-  background-color: rgba(18, 18, 18, 0.1);
-  color: rgba(18, 18, 18, 1);
-  color: black;
+  background-color: var(--button-background-color-hover);
+  color: var(--button-text-color-hover);
   transition: all 0.5s ease;
 }
 
+.comic-viewer-tip-jar span:hover,
 .comic-viewer-share-link span:hover {
-  color: rgba(18, 18, 18, 1);
+  color: var(--button-text-color-hover);
   transition: all 0.5s ease;
 }
 
+.comic-viewer-tip-jar span,
 .comic-viewer-share-link span {
   display: inline-block;
   vertical-align: middle;
+  margin-top: -0.125rem;
 }
 
+.comic-viewer-tip-jar svg,
 .comic-viewer-share-link svg {
   display: inline-block;
   width: 1.7rem;
   margin-left: 5px;
+  margin-top: -0.125rem;
   vertical-align: middle;
 }
 
 .comic-viewer-description {
   text-align: center;
-  margin: 30px auto 20px auto;
+  margin: 10px auto;
   max-width: 650px;
   padding: 0 20px;
 }
@@ -497,13 +496,6 @@ footer ul:first-child {
 @media screen and (min-width: 920px) {
   .comic-viewer-container {
     max-width: 880px;
-  }
-
-  .comic-container {
-    position: relative;
-    width: 100%;
-    height: 865px;
-    overflow: hidden;
   }
 
   #comic-viewer-comic {

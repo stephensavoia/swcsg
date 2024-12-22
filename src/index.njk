@@ -3,5 +3,32 @@ layout: layouts/base.njk
 title: "Index"
 ---
 
-<h1>{{ title }}</h1>
-{% image "src/assets/img/comic/001.jpg", "Bond, James Bond", "(min-width: 30em) 50vw, 100vw" %}
+{% if comic.paginationDirection == "reverse" %}
+    {% set comics = comics | reverse %}
+    {% set nextComicId = comics[1].id %}
+    {% set nextComicImagePath = ["src/assets/img/comic/", nextComicId, ".jpg"] | join %}
+    {% set prevComicImagePath = null %}
+    {% set latestComic = comics[comics | length - 1] %}
+{% else %}
+    {% set prevComicId = comics[1].id %}
+    {% set prevComicImagePath = ["src/assets/img/comic/", prevComic, ".jpg"] | join %}
+    {% set nextComicImagePath = null %}
+    {% set latestComic = comics[0] %}
+{% endif %}
+
+{% set comicImagePath = ["src/assets/img/comic/", comics[0].id, ".jpg"] | join %}
+
+
+{% comicViewer
+  id=comics[0].id,
+  description=comics[0].description,
+  imageUrl=comicImagePath,
+  prevId=prevComicId,
+  prevImageUrl=prevComicImagePath,
+  nextId=nextComicId,
+  nextImageUrl=nextComicImagePath,
+  latestId=latestComic.id,
+  comicTitle=comics[0].title,
+  comicUrl=comics[0].url,
+  tipJarUrl=comics[0].tipJarUrl
+  %}

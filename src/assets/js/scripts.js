@@ -31,7 +31,6 @@ const menu = document.querySelector(".menu");
 const links = menu.querySelectorAll("a");
 
 checkbox.addEventListener("change", () => {
-  console.log("click checkbox");
   menuActive = !menuActive;
   updateMenuState();
 });
@@ -50,9 +49,7 @@ document.addEventListener("click", (event) => {
     !checkboxLabel.contains(event.target) &&
     !header.contains(event.target)
   ) {
-    console.log(event.target);
     if (menuActive) {
-      console.log("click outside");
       menuActive = false;
       updateMenuState();
     }
@@ -61,7 +58,6 @@ document.addEventListener("click", (event) => {
 
 function updateMenuState() {
   checkbox.checked = menuActive;
-  console.log("menuActive:", menuActive);
   if (menuActive) {
     menu.classList.add("active");
   } else {
@@ -73,14 +69,23 @@ function updateMenuState() {
 // SHARE LINK
 const navigatorVariable = window.navigator;
 
-const shareHandler = async (e, comicId, comicDescription) => {
-  console.log("shareHandler", comicId);
+const shareHandler = async (
+  e,
+  comicId,
+  comicTitle,
+  comicDescription,
+  comicUrl
+) => {
   e.preventDefault();
+  if (comicUrl && comicUrl.slice(-1) !== "/") {
+    comicUrl = comicUrl + "/";
+  }
   try {
+    console.log("comicUrl", comicUrl);
     await navigatorVariable.share({
-      title: `Bright Red #${comicId}`,
+      title: `${comicTitle} #${comicId}`,
       text: `${comicDescription}`,
-      url: `https://www.willyandfroggy.com/BR/${comicId}`,
+      url: `${comicUrl}${comicId}`,
     });
   } catch (error) {
     console.error("Share failed:", error.message);

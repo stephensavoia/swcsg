@@ -9,9 +9,6 @@ permalink: "{{ comic.id | slugify }}"
 eleventyAllowMissingExtension: true
 ---
 
-
-<main class="about">
-  {# {% image comicImagePath, comic.description, "(min-width: 30em) 50vw, 100vw" %} #}
 {% set comicImagePath = ["src/assets/img/comic/", comic.id, ".jpg"] | join %}
 {% set prevComicId = pagination.page.next.id %}
 {% set prevComicImagePath = ["src/assets/img/comic/", prevComic, ".jpg"] | join %}
@@ -22,11 +19,12 @@ eleventyAllowMissingExtension: true
   id=comic.id,
   description=comic.description,
   imageUrl=comicImagePath,
-  variantUrl="NULL",
   prevId=prevComicId,
   prevImageUrl=prevComicImagePath,
   nextId=nextComicId,
   nextImageUrl=nextComicImagePath,
-  latestId=comics[0].id
+  latestId=comics[0].id,
+  comicTitle=comic.title,
+  comicUrl=comic.url,
+  tipJarUrl=comic.tipJarUrl
   %}
-</main>

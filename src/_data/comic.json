@@ -1,6 +1,8 @@
 {
   "title": "Static Webcomic Site Generator",
   "author": "Voyager Golden Comics",
+  "url": "https://www.yourcomicwebsite.com/",
+  "tipJarUrl": "https://www.paypal.com/",
   "createdYear": 2024,
   "logo": "logo.png",
   "socialMediaLogo": "logo.jpg",

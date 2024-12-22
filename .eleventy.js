@@ -9,16 +9,15 @@ export default async function (eleventyConfig) {
   });
 
   eleventyConfig.addNunjucksAsyncShortcode("image", responsiveImage);
-  eleventyConfig.addNunjucksShortcode("comicViewer", comicViewer);
+  eleventyConfig.addNunjucksAsyncShortcode("comicViewer", comicViewer);
   eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
-
-  eleventyConfig.addWatchTarget("src/");
-  eleventyConfig.addWatchTarget("src/assets/css/");
-  eleventyConfig.addWatchTarget("src/assets/js/");
 
   eleventyConfig.addCollection("comics", function (collection) {
     return collection.getAll();
   });
+
+  eleventyConfig.addWatchTarget("src/assets/css/");
+  eleventyConfig.addWatchTarget("src/assets/js/");
 
   return {
     dir: {
