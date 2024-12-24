@@ -92,3 +92,53 @@ const shareHandler = async (
   }
 };
 // END OF SHARE LINK
+
+// ZOOM
+document.addEventListener("DOMContentLoaded", function () {
+  const comicImageContainer = document.querySelector(
+    ".comic-viewer-image-container"
+  );
+  const comicImage = comicImageContainer.querySelector(
+    ".comic-viewer-image-container img"
+  );
+  console.log(comicImageContainer);
+  console.log(comicImage);
+  let isZoomed = false;
+
+  if (comicImageContainer) {
+    comicImageContainer.addEventListener("click", function (event) {
+      isZoomed = !isZoomed;
+      if (isZoomed) {
+        comicImageContainer.classList.add("zoom-on");
+        updateTransformOrigin(event);
+      } else {
+        comicImageContainer.classList.remove("zoom-on");
+      }
+    });
+
+    comicImageContainer.addEventListener("mousemove", function (event) {
+      if (isZoomed) {
+        updateTransformOrigin(event);
+      }
+    });
+
+    function sigmoid(x) {
+      return 1 / (1 + Math.exp(-x));
+    }
+
+    function updateTransformOrigin(event) {
+      const rect = comicImageContainer.getBoundingClientRect();
+      const cursorX = (event.clientX - rect.left) / rect.width;
+      const cursorY = (event.clientY - rect.top) / rect.height;
+
+      // Apply sigmoid transformation
+      const transformedX = sigmoid((cursorX - 0.5) * 20) * 100;
+      const transformedY = sigmoid((cursorY - 0.5) * 20) * 100;
+
+      comicImage.style.transformOrigin = `${transformedX}% ${transformedY}%`;
+      console.log("cursorY", cursorY);
+      console.log("transformedY", transformedY);
+    }
+  }
+});
+// END OF ZOOM

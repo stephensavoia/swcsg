@@ -82,7 +82,8 @@ export default async function comicViewer({
   return html`
     <main>
       <div class="comic-viewer-container">
-        ${currentComic} ${navLinks}
+        <div class="comic-viewer-image-container">${currentComic}</div>
+        ${navLinks}
         <div class="comic-viewer-ad-buttons">
           <a
             id="comic-viewer-tip-jar"
