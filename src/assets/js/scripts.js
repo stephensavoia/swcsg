@@ -81,7 +81,6 @@ const shareHandler = async (
     comicUrl = comicUrl + "/";
   }
   try {
-    console.log("comicUrl", comicUrl);
     await navigatorVariable.share({
       title: `${comicTitle} #${comicId}`,
       text: `${comicDescription}`,
@@ -101,12 +100,18 @@ document.addEventListener("DOMContentLoaded", function () {
   const comicImage = comicImageContainer.querySelector(
     ".comic-viewer-image-container img"
   );
-  console.log(comicImageContainer);
-  console.log(comicImage);
+
   let isZoomed = false;
+  let touchEvent = false;
+  let lastTap = 0;
 
   if (comicImageContainer) {
+    // Desktop
     comicImageContainer.addEventListener("click", function (event) {
+      if (touchEvent) {
+        touchEvent = false;
+        return;
+      }
       isZoomed = !isZoomed;
       if (isZoomed) {
         comicImageContainer.classList.add("zoom-on");
@@ -115,12 +120,36 @@ document.addEventListener("DOMContentLoaded", function () {
         comicImageContainer.classList.remove("zoom-on");
       }
     });
-
     comicImageContainer.addEventListener("mousemove", function (event) {
       if (isZoomed) {
         updateTransformOrigin(event);
       }
     });
+    // End of desktop
+
+    // Mobile
+    comicImageContainer.addEventListener("touchstart", function (event) {
+      touchEvent = true;
+      const currentTime = new Date().getTime();
+      const tapLength = currentTime - lastTap;
+      if (tapLength < 500 && tapLength > 0) {
+        isZoomed = !isZoomed;
+        if (isZoomed) {
+          comicImageContainer.classList.add("zoom-on");
+          updateTransformOrigin(event.touches[0]);
+        } else {
+          comicImageContainer.classList.remove("zoom-on");
+        }
+      }
+      lastTap = currentTime;
+    });
+    comicImageContainer.addEventListener("touchmove", function (event) {
+      if (isZoomed) {
+        event.preventDefault();
+        updateTransformOrigin(event.touches[0]);
+      }
+    });
+    // End of mobile
 
     function sigmoid(x) {
       return 1 / (1 + Math.exp(-x));
@@ -131,13 +160,10 @@ document.addEventListener("DOMContentLoaded", function () {
       const cursorX = (event.clientX - rect.left) / rect.width;
       const cursorY = (event.clientY - rect.top) / rect.height;
 
-      // Apply sigmoid transformation
       const transformedX = sigmoid((cursorX - 0.5) * 20) * 100;
       const transformedY = sigmoid((cursorY - 0.5) * 20) * 100;
 
       comicImage.style.transformOrigin = `${transformedX}% ${transformedY}%`;
-      console.log("cursorY", cursorY);
-      console.log("transformedY", transformedY);
     }
   }
 });
