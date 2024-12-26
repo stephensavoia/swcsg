@@ -1,22 +1,22 @@
 [
   {
     "id": "005",
-    "description": "Comic #005"
+    "description": "This is another placeholder image that represents a square comic—a common aspect ratio for cartoons shared on social media platforms."
   },
   {
     "id": "004",
-    "description": "Comic #004"
+    "description": "This is another placeholder image that represents a comic page with the aspect ratio of a standard American print comic."
   },
   {
     "id": "003",
-    "description": "Comic #003"
+    "description": "This is a placeholder image that represents a square comic—a common aspect ratio for cartoons shared on social media platforms."
   },
   {
     "id": "002",
-    "description": "Comic #002"
+    "description": "This is a placeholder image that represents a comic page with the aspect ratio of a standard print manga."
   },
   {
     "id": "001",
-    "description": "Comic #001"
+    "description": "This is a placeholder image that represents a comic page with the aspect ratio of a standard American print comic."
   }
 ]

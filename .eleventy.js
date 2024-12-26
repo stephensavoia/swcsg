@@ -2,6 +2,7 @@ import responsiveImage from "./src/_includes/components/responsiveImage.js";
 import comicViewer from "./src/_includes/components/comicViewer.js";
 
 export default async function (eleventyConfig) {
+  eleventyConfig.addPassthroughCopy("src/favicon.ico");
   eleventyConfig.addPassthroughCopy("src/assets/css/");
   eleventyConfig.addPassthroughCopy("src/assets/js/");
   eleventyConfig.addPassthroughCopy({

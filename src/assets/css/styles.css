@@ -500,6 +500,10 @@ footer ul:first-child {
   margin: 0;
 }
 
+.comic-viewer-description p {
+  text-wrap: balance;
+}
+
 .comic-viewer-hidden-link {
   visibility: hidden;
 }
