@@ -4,8 +4,7 @@ pagination:
   data: comics
   size: 1
   alias: comic
-permalink: "{{ comic.id | slugify }}"
-eleventyAllowMissingExtension: true
+permalink: "{{ comic.id | slugify }}.html"
 ---
 
 {% set comicImagePath = ["src/assets/img/comic/", comic.id, ".jpg"] | join %}
