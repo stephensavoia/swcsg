@@ -52,6 +52,9 @@ select {
 /* END OF RESET */
 
 /* BASE */
+html {
+  touch-action: manipulation;
+}
 body {
   font-family: "Inter", sans-serif;
   margin: 0;
@@ -421,6 +424,7 @@ footer ul:first-child {
   text-underline-offset: 3px;
   text-decoration-thickness: 1px;
   transition: all 500ms ease;
+  font-size: 16px;
 }
 
 .comic-viewer-nav-links a:hover {
@@ -433,7 +437,18 @@ footer ul:first-child {
   margin: 0 auto;
   max-width: 420px;
 }
-
+.comic-viewer-nav-links a.comic-viewer-first-button {
+  margin-left: 0;
+}
+.comic-viewer-nav-links a.comic-viewer-prev-button {
+  margin-right: 0;
+}
+.comic-viewer-nav-links a.comic-viewer-next-button {
+  margin-left: 0;
+}
+.comic-viewer-nav-links a.comic-viewer-latest-button {
+  margin-right: 0;
+}
 .comic-viewer-tip-jar,
 .comic-viewer-share-link {
   margin: 20px 0;
@@ -448,7 +463,8 @@ footer ul:first-child {
   font-size: 1.075rem;
   letter-spacing: 0.1rem;
   transition: all 500ms ease;
-  display: block;
+  display: flex;
+  justify-content: center;
   border: 2px solid var(--button-border-color);
   box-sizing: border-box;
 }
@@ -525,6 +541,14 @@ footer ul:first-child {
 
   .comic-viewer-nav-links {
     max-width: 440px;
+  }
+
+  .comic-viewer-nav-links a.comic-viewer-first-button {
+    margin-left: 10px;
+  }
+
+  .comic-viewer-nav-links a.comic-viewer-latest-button {
+    margin-right: 10px;
   }
 }
 /* END OF COMIC VIEWER */

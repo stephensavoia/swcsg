@@ -18,12 +18,14 @@ export default async function comicViewer({
   if (prevId && nextId) {
     navLinks = html` <div class="comic-viewer-nav-links">
       <div class="comic-viewer-left-links">
-        <a href="/001">&lt;&lt; First</a
+        <a class="comic-viewer-first-button" href="/001">&lt;&lt; First</a
         ><a class="comic-viewer-prev-button" href="/${prevId}">&lt; Previous</a>
       </div>
       <div class="comic-viewer-right-links">
         <a class="comic-viewer-next-button" href="/${nextId}">Next &gt;</a
-        ><a href="/${latestId}">Latest &gt;&gt;</a>
+        ><a class="comic-viewer-latest-button" href="/${latestId}"
+          >Latest &gt;&gt;</a
+        >
       </div>
     </div>`;
   } else if (prevId) {
@@ -153,7 +155,7 @@ export default async function comicViewer({
         </div>
 
         <div class="comic-viewer-description">
-          <h2>Bright Red #${id}</h2>
+          <h2>${comicTitle} #${id}</h2>
           <p>${description}</p>
         </div>
         <div

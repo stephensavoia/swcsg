@@ -104,6 +104,8 @@ document.addEventListener("DOMContentLoaded", function () {
   let isZoomed = false;
   let touchEvent = false;
   let lastTap = 0;
+  let lastTapWasDouble = true;
+  let tapTimeout;
 
   if (comicImageContainer) {
     // Desktop
@@ -130,9 +132,11 @@ document.addEventListener("DOMContentLoaded", function () {
     // Mobile
     comicImageContainer.addEventListener("touchstart", function (event) {
       touchEvent = true;
+      lastTapWasDouble = !lastTapWasDouble;
       const currentTime = new Date().getTime();
       const tapLength = currentTime - lastTap;
-      if (tapLength < 500 && tapLength > 0) {
+      clearTimeout(tapTimeout);
+      if (tapLength < 500 && tapLength > 0 && lastTapWasDouble) {
         isZoomed = !isZoomed;
         if (isZoomed) {
           comicImageContainer.classList.add("zoom-on");
@@ -142,6 +146,9 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       }
       lastTap = currentTime;
+      tapTimeout = setTimeout(() => {
+        lastTapWasDouble = true;
+      }, 500);
     });
     comicImageContainer.addEventListener("touchmove", function (event) {
       if (isZoomed) {
