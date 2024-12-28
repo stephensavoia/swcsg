@@ -8,6 +8,7 @@ export default async function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({
     "src/assets/img/other/": "assets/img/",
   });
+  eleventyConfig.addPassthroughCopy("src/robots.txt");
 
   eleventyConfig.addNunjucksAsyncShortcode("image", responsiveImage);
   eleventyConfig.addNunjucksAsyncShortcode("comicViewer", comicViewer);
