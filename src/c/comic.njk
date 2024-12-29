@@ -4,7 +4,8 @@ pagination:
   data: comics
   size: 1
   alias: comic
-permalink: "{{ comic.id | slugify }}.html"
+  addAllPagesToCollections: true
+permalink: "c/{{ comic.id }}.html"
 ---
 
 {% set comicImagePath = ["src/assets/img/comic/", comic.id, ".jpg"] | join %}

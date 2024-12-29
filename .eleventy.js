@@ -15,6 +15,7 @@ export default async function (eleventyConfig) {
   eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
 
   eleventyConfig.addCollection("comics", function (collection) {
+    console.log(collection);
     return collection.getAll();
   });
 

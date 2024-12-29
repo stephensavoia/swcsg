@@ -18,12 +18,14 @@ export default async function comicViewer({
   if (prevId && nextId) {
     navLinks = html` <div class="comic-viewer-nav-links">
       <div class="comic-viewer-left-links">
-        <a class="comic-viewer-first-button" href="/001">&lt;&lt; First</a
-        ><a class="comic-viewer-prev-button" href="/${prevId}">&lt; Previous</a>
+        <a class="comic-viewer-first-button" href="/c/001">&lt;&lt; First</a
+        ><a class="comic-viewer-prev-button" href="/c/${prevId}"
+          >&lt; Previous</a
+        >
       </div>
       <div class="comic-viewer-right-links">
-        <a class="comic-viewer-next-button" href="/${nextId}">Next &gt;</a
-        ><a class="comic-viewer-latest-button" href="/${latestId}"
+        <a class="comic-viewer-next-button" href="/c/${nextId}">Next &gt;</a
+        ><a class="comic-viewer-latest-button" href="/c/${latestId}"
           >Latest &gt;&gt;</a
         >
       </div>
@@ -31,8 +33,10 @@ export default async function comicViewer({
   } else if (prevId) {
     navLinks = html` <div class="comic-viewer-nav-links">
       <div class="comic-viewer-left-links">
-        <a href="/001">&lt;&lt; First</a
-        ><a class="comic-viewer-prev-button" href="/${prevId}">&lt; Previous</a>
+        <a href="/c/001">&lt;&lt; First</a
+        ><a class="comic-viewer-prev-button" href="/c/${prevId}"
+          >&lt; Previous</a
+        >
       </div>
       <div class="comic-viewer-right-links">
         <span class="comic-viewer-hidden-link">Next &gt;</span
@@ -47,8 +51,8 @@ export default async function comicViewer({
         ><span class="comic-viewer-hidden-link">&lt; Previous</span>
       </div>
       <div class="comic-viewer-right-links">
-        <a class="comic-viewer-next-button" href="/${nextId}">Next &gt;</a
-        ><a href="/${latestId}">Latest &gt;&gt;</a>
+        <a class="comic-viewer-next-button" href="/c/${nextId}">Next &gt;</a
+        ><a href="/c/${latestId}">Latest &gt;&gt;</a>
       </div>
     </div>`;
   }
