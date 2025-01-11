@@ -1,38 +1,66 @@
 # This README.md is not complete. Please ignore for now
 
-# 1. Install SWCSG
+# Static Webcomic Site Generator
 
-## You will need:
+Static Webcomic Site Generator (SWCSG) is a tool that allows cartoonists to quickly and easily create a website to share their work. It's built using 11ty.
+
+## 1. Install SWCSG
+
+### You will need:
 
 - Node.js
 
-## Follow these steps:
+### Follow these steps:
 
 1. Install Node.js (and npm)
-   - Follow these steps
 2. Download the SWCSG folder
-   - Follow these steps
-3. Run command `nmp i`
-   - Follow these steps
+   - Go to https://github.com/stephensavoia/swcsg
+   - Click: _Code > Download ZIP_
+3. Extract _swcsg-main_ to a folder on your computer
+4. Install SWCSG
+   - In a command line terminal (e.g. PowerShell on Windows) run the command `nmp i`
 
-# 2. Create your website
+## 2. Create your website
 
-## You will need:
+### You will need:
 
-- Navbar logo _- PNG, 500px wide X 250px tall_
-- Social media logo _- PNG, 1200px wide X 628px tall_
-- Favicon _-ICO, 48px X 48px_
-- Comic pages _-JPG, 2048px wide_
+- A favicon
+  - Format: ico
+  - Dimensions: 48px X 48px
+- A navbar logo
+  - Format: png
+  - Dimensions: 500px wide X 250px high
+- A social media logo
+  - Format: png
+  - Dimensions: 1200px wide X 628px high
+- Comic pages
+  - Format: png
+  - Dimensions: 1875px wide
 
-## Follow these steps:
+### Follow these steps:
 
-1. Install Node.js (and npm)
-   - Follow these steps
-2. Download the SWCSG folder
-   - Follow these steps
-3. Run command `nmp i`
-   - Follow these steps
+1. Add your favicon
+   - If you don't already have a favicon, you can create one using a generator such as https://realfavicongenerator.net/
+   - Go to folder: _swcsg-main > src_
+   - Delete the current _favicon.ico_ and replace it with your favicon
+   - Make sure your favicon is titled "favicon.io"
+2. Add your navbar and social media logos
+   - Go to folder: _swcsg-main/src/assets/img/other_
+   - Delete the current logo files and add your own
+3. Add your comic pages
+   - Go to folder: _swcsg-main/src/assets/img/comic_
+   - Delete the current comic page files and add your own
+   - Make sure your comic page files are titled in numerical order, with leading zeros where necessary
+     - Example: 001.jpg, 002.jpg, 003.jpg...
 
-# 3. Host your website
+## 3. Host your website
 
-- Follow these steps
+### You will need:
+
+- The static website you just created
+
+### Follow these steps:
+
+1. Share your website with the world by deploying it to a host, such as:
+   - [Cloudflare Pages](https://pages.cloudflare.com/)
+   - [GitHub Pages](https://pages.github.com/)
