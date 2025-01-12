@@ -2,7 +2,7 @@ import Image from "@11ty/eleventy-img";
 
 export default async function responsiveImage(src, alt, sizes) {
   let metadata = await Image(src, {
-    widths: [840, 1240, 1680, 2480],
+    widths: [840, 1260, 1680, 2520],
     formats: ["webp", "jpeg"],
     outputDir: "./_site/assets/img/comic",
     urlPath: "/assets/img/comic/",

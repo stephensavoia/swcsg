@@ -29,13 +29,13 @@ Static Webcomic Site Generator (SWCSG) is a tool that allows cartoonists to quic
   - Dimensions: 48px X 48px
 - A navbar logo
   - Format: png
-  - Dimensions: 500px wide X 250px high
+  - Dimensions: 300px wide X 150px high
 - A social media logo
   - Format: png
   - Dimensions: 1200px wide X 628px high
 - Comic pages
   - Format: png
-  - Dimensions: 1875px wide
+  - Dimensions: Up to 2520px wide
 
 ### Follow these steps:
 
