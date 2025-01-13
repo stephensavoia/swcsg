@@ -1,4 +1,5 @@
-import fs from "fs/promises";
+import fs from "fs";
+import { promises as fsPromises } from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 
@@ -30,24 +31,23 @@ async function run() {
   const inputDir = path.resolve(root, "../", process.argv[2]);
   const comicsPath = path.resolve(root, "../", process.argv[3]);
 
-  // Copilot stuff
-  // if (!fs.existsSync(comicsPath)) {
-  //   console.log("Comics path does not exist. Creating file...");
-  //   fs.mkdirSync(path.dirname(comicsPath), { recursive: true });
-  //   fs.writeFileSync(comicsPath, JSON.stringify([]));
-  // } else {
-  //   console.log("Comics path exists.");
-  // }
+  if (!fs.existsSync(comicsPath)) {
+    console.log("Comics path does not exist. Creating file...");
+    fs.mkdirSync(path.dirname(comicsPath), { recursive: true });
+    fs.writeFileSync(comicsPath, JSON.stringify([]));
+  } else {
+    console.log("Comics path exists.");
+  }
 
   try {
-    await fs.access(inputDir);
+    await fsPromises.access(inputDir);
   } catch (err) {
     console.error("Input dir does not exist.");
     process.exit(1);
   }
 
   try {
-    await fs.access(comicsPath);
+    await fsPromises.access(comicsPath);
   } catch (err) {
     console.log("Comics path does not exist.");
     process.exit(1);
@@ -55,14 +55,14 @@ async function run() {
 
   console.log(`Populating: ${comicsPath}\n`);
 
-  const files = await fs.readdir(inputDir);
+  const files = await fsPromises.readdir(inputDir);
 
   const imageFiles = files.filter((file) =>
     IMAGE_EXTENSIONS.includes(path.extname(file).toLowerCase())
   );
 
   try {
-    const comicsFile = await fs.readFile(comicsPath, "utf-8");
+    const comicsFile = await fsPromises.readFile(comicsPath, "utf-8");
     let comics = JSON.parse(comicsFile);
 
     if (!Array.isArray(comics)) {
@@ -83,7 +83,7 @@ async function run() {
     await Promise.all(
       imageFiles.map(async (imageFile) => {
         const filePath = path.join(inputDir, imageFile);
-        const stats = await fs.stat(filePath);
+        const stats = await fsPromises.stat(filePath);
 
         if (stats.isFile()) {
           const [fileName] = imageFile.split(".");
@@ -125,7 +125,11 @@ async function run() {
     comics.sort((a, b) => Number(b.id) - Number(a.id));
 
     try {
-      await fs.writeFile(comicsPath, JSON.stringify(comics, null, 2), "utf-8");
+      await fsPromises.writeFile(
+        comicsPath,
+        JSON.stringify(comics, null, 2),
+        "utf-8"
+      );
     } catch (err) {
       console.error("Failed to write comics file --", err);
       process.exit(1);

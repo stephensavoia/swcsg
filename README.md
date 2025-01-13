@@ -52,11 +52,17 @@ Static Webcomic Site Generator (SWCSG) is a tool that allows cartoonists to quic
    - Delete the current comic page files and add your own
    - Make sure your comic page files are titled in numerical order, with leading zeros where necessary
      - Example: 001.jpg, 002.jpg, 003.jpg...
-4. Add your comic pages info
+4. Add your comic page descriptions
    - Go to folder: _swcsg-main/src/\_data_ and delete the file _comics.json_
+     - **SKIP THIS STEP IF YOU ARE UPDATING YOUR SITE, RATHER THAN BUILDING IT FOR THE FIRST TIME OR YOU WILL LOSE YOUR EXISTING COMIC PAGE DESCRIPTIONS**
    - In a command line terminal (e.g. PowerShell on Windows), from folder _swcsg-main_, run the command `npm run populate:comics`
    - Go back to folder: _swcsg-main/src/\_data_ and open the newly created version of _comics.json_
-   - Fill out with your own information
+   - Fill out _comics.json_ with your comic page descriptions and then save the file
+     - For more information on how to write JSON, see [W3Schools](https://www.w3schools.com/js/js_json_intro.asp)
+5. Add your comic info
+   - Go to folder: _swcsg-main/src/\_data_ and open the file _comic.json_
+   - Fill out _comic.json_ with your comic's information and then save the file
+     - For more information on how to write JSON, see [W3Schools](https://www.w3schools.com/js/js_json_intro.asp)
 
 ## 3. Host your website
 
