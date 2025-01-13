@@ -18,7 +18,7 @@ Static Webcomic Site Generator (SWCSG) is a tool that allows cartoonists to quic
    - Click: _Code > Download ZIP_
 3. Extract _swcsg-main_ to a folder on your computer
 4. Install SWCSG
-   - In a command line terminal (e.g. PowerShell on Windows) run the command `nmp i`
+   - In a command line terminal (e.g. PowerShell on Windows), from folder _swcsg-main_, run the command `npm i`
 
 ## 2. Create your website
 
@@ -52,6 +52,11 @@ Static Webcomic Site Generator (SWCSG) is a tool that allows cartoonists to quic
    - Delete the current comic page files and add your own
    - Make sure your comic page files are titled in numerical order, with leading zeros where necessary
      - Example: 001.jpg, 002.jpg, 003.jpg...
+4. Add your comic pages info
+   - Go to folder: _swcsg-main/src/\_data_ and delete the file _comics.json_
+   - In a command line terminal (e.g. PowerShell on Windows), from folder _swcsg-main_, run the command `npm run populate:comics`
+   - Go back to folder: _swcsg-main/src/\_data_ and open the newly created version of _comics.json_
+   - Fill out with your own information
 
 ## 3. Host your website
 
