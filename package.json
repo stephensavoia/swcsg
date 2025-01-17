@@ -8,15 +8,13 @@
     "start": "npx eleventy --serve",
     "build": "npx eleventy",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "image:resize": "node ./scripts/resize-images.js ./src/assets/img/comic/input ./src/assets/img/comic/output",
     "populate:comics": "node ./scripts/populate-comics.js ./src/assets/img/comic ./src/_data/comics.json"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@11ty/eleventy": "^3.0.0",
-    "sharp": "^0.33.5"
+    "@11ty/eleventy": "^3.0.0"
   },
   "dependencies": {
     "@11ty/eleventy-img": "^5.0.0",
