@@ -33,7 +33,7 @@ export default async function comicViewer({
   } else if (prevId) {
     navLinks = html` <div class="comic-viewer-nav-links">
       <div class="comic-viewer-left-links">
-        <a href="/c/001">&lt;&lt; First</a
+        <a class="comic-viewer-first-button" href="/c/001">&lt;&lt; First</a
         ><a class="comic-viewer-prev-button" href="/c/${prevId}"
           >&lt; Previous</a
         >

@@ -10,7 +10,7 @@ title: "Archive"
         {% endif %}
 
         {% for comic in comics %}
-            <a href="/{{ comic.id }}">{{ comic.id }}</a>{% if not loop.last %}  |  {% endif %}
+            <a href="/c/{{ comic.id }}">{{ comic.id }}</a>{% if not loop.last %}  |  {% endif %}
         {% endfor %}
     </div>
 </main>
