@@ -52,7 +52,9 @@ export default async function comicViewer({
       </div>
       <div class="comic-viewer-right-links">
         <a class="comic-viewer-next-button" href="/c/${nextId}">Next &gt;</a
-        ><a href="/c/${latestId}">Latest &gt;&gt;</a>
+        ><a class="comic-viewer-latest-button" href="/c/${latestId}"
+          >Latest &gt;&gt;</a
+        >
       </div>
     </div>`;
   }
