@@ -11,6 +11,12 @@
   --button-text-color-hover: rgb(18, 18, 18);
   --button-border-color: rgba(18, 18, 18, 0.75);
   --button-border-color-hover: rgba(18, 18, 18, 0.75);
+  --tip-jar-button-background-color: rgb(255, 255, 255);
+  --tip-jar-button-background-color-hover: rgba(18, 18, 18, 0.1);
+  --tip-jar-button-text-color: rgba(18, 18, 18, 0.85);
+  --tip-jar-button-text-color-hover: rgb(18, 18, 18);
+  --tip-jar-button-border-color: rgba(18, 18, 18, 0.75);
+  --tip-jar-button-border-color-hover: rgba(18, 18, 18, 0.75);
 }
 /* END OF VARIABLES */
 
@@ -486,6 +492,25 @@ footer ul:first-child {
 .comic-viewer-share-link span:hover {
   color: var(--button-text-color-hover);
   transition: all 0.5s ease;
+}
+
+.comic-viewer-tip-jar {
+  color: var(--tip-jar-button-text-color);
+  background-color: var(--tip-jar-button-background-color);
+  border: 2px solid var(--tip-jar-button-border-color);
+}
+
+.comic-viewer-tip-jar span {
+  color: var(--tip-jar-button-text-color);
+}
+
+.comic-viewer-tip-jar:hover {
+  background-color: var(--tip-jar-button-background-color-hover);
+  color: var(--tip-jar-button-text-color-hover);
+}
+
+.comic-viewer-tip-jar span:hover {
+  color: var(--tip-jar-button-text-color-hover);
 }
 
 .comic-viewer-tip-jar span,
