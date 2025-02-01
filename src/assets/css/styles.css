@@ -306,7 +306,7 @@ main {
 
 /* PAGE CONTENT */
 main {
-  padding: 0 20px;
+  padding: 0 16px;
 }
 main h1 {
   font-weight: 400;
@@ -533,7 +533,7 @@ footer ul:first-child {
   text-align: center;
   margin: 10px auto;
   max-width: 650px;
-  padding: 0 20px;
+  padding: 0 16px;
 }
 
 .comic-viewer-description h2 {

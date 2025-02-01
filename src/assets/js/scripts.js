@@ -92,7 +92,7 @@ const shareHandler = async (
 };
 // END OF SHARE LINK
 
-// ZOOM
+// ZOOM AND SWIPE TO NEXT/PREVIOUS COMIC
 document.addEventListener("DOMContentLoaded", function () {
   const comicImageContainer = document.querySelector(
     ".comic-viewer-image-container"
@@ -101,6 +101,7 @@ document.addEventListener("DOMContentLoaded", function () {
     ".comic-viewer-image-container img"
   );
 
+  // Zoom
   let isZoomed = false;
   let touchEvent = false;
   let lastTap = 0;
@@ -108,7 +109,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let tapTimeout;
 
   if (comicImageContainer) {
-    // Desktop
+    // Zoom desktop
     comicImageContainer.addEventListener("click", function (event) {
       if (touchEvent) {
         touchEvent = false;
@@ -127,9 +128,9 @@ document.addEventListener("DOMContentLoaded", function () {
         updateTransformOrigin(event);
       }
     });
-    // End of desktop
+    // End of zoom desktop
 
-    // Mobile
+    // Zoom mobile
     comicImageContainer.addEventListener("touchstart", function (event) {
       touchEvent = true;
       lastTapWasDouble = !lastTapWasDouble;
@@ -156,7 +157,7 @@ document.addEventListener("DOMContentLoaded", function () {
         updateTransformOrigin(event.touches[0]);
       }
     });
-    // End of mobile
+    // End of zoom mobile
 
     function sigmoid(x) {
       return 1 / (1 + Math.exp(-x));
@@ -173,5 +174,65 @@ document.addEventListener("DOMContentLoaded", function () {
       comicImage.style.transformOrigin = `${transformedX}% ${transformedY}%`;
     }
   }
+  // End of zoom
+
+  // Swipe to next/previous comic
+  let startX;
+  let startY;
+  let distX;
+  let distY;
+  let threshold = 100; // required min distance traveled to be considered swipe
+  let allowedTime = 300; // maximum time allowed to travel that distance
+  let elapsedTime;
+  let startTime;
+
+  comicImageContainer.addEventListener(
+    "touchstart",
+    function (e) {
+      console.log("touchstart");
+      if (!comicImageContainer.classList.contains("zoom-on")) {
+        let touchObj = e.changedTouches[0];
+        startX = touchObj.pageX;
+        startY = touchObj.pageY;
+        startTime = new Date().getTime();
+        console.log("startX: " + startX + " startY: " + startY);
+        // e.preventDefault();
+      }
+    },
+    true
+  );
+
+  // comicImageContainer.addEventListener(
+  //   "touchmove",
+  //   function (e) {
+  //     e.preventDefault(); // prevent scrolling when inside DIV
+  //   },
+  //   true
+  // );
+
+  comicImageContainer.addEventListener(
+    "touchend",
+    function (e) {
+      console.log("touchend");
+      if (!comicImageContainer.classList.contains("zoom-on")) {
+        let touchObj = e.changedTouches[0];
+        distX = touchObj.pageX - startX;
+        distY = touchObj.pageY - startY;
+        elapsedTime = new Date().getTime() - startTime;
+        if (elapsedTime <= allowedTime) {
+          if (Math.abs(distX) >= threshold && Math.abs(distY) <= 100) {
+            if (distX > 0) {
+              document.querySelector(".comic-viewer-prev-button")?.click(); // right swipe
+            } else {
+              document.querySelector(".comic-viewer-next-button")?.click(); // left swipe
+            }
+          }
+        }
+        //        e.preventDefault();
+      }
+    },
+    true
+  );
+  // End of swipe to next/previous comic
 });
-// END OF ZOOM
+// END OF ZOOM AND SWIPE TO NEXT/PREVIOUS COMIC
