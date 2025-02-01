@@ -189,13 +189,11 @@ document.addEventListener("DOMContentLoaded", function () {
   comicImageContainer.addEventListener(
     "touchstart",
     function (e) {
-      console.log("touchstart");
       if (!comicImageContainer.classList.contains("zoom-on")) {
         let touchObj = e.changedTouches[0];
         startX = touchObj.pageX;
         startY = touchObj.pageY;
         startTime = new Date().getTime();
-        console.log("startX: " + startX + " startY: " + startY);
         // e.preventDefault();
       }
     },
@@ -213,7 +211,6 @@ document.addEventListener("DOMContentLoaded", function () {
   comicImageContainer.addEventListener(
     "touchend",
     function (e) {
-      console.log("touchend");
       if (!comicImageContainer.classList.contains("zoom-on")) {
         let touchObj = e.changedTouches[0];
         distX = touchObj.pageX - startX;
