@@ -200,14 +200,6 @@ document.addEventListener("DOMContentLoaded", function () {
     true
   );
 
-  // comicImageContainer.addEventListener(
-  //   "touchmove",
-  //   function (e) {
-  //     e.preventDefault(); // prevent scrolling when inside DIV
-  //   },
-  //   true
-  // );
-
   comicImageContainer.addEventListener(
     "touchend",
     function (e) {
