@@ -1,4 +1,4 @@
-![SWCSG Logo](swcsg-readme-logo.png)
+<img src="swcsg-readme-logo.png" alt="SWCSG Logo" style="max-width:550px;">
 
 # Static Webcomic Site Generator
 
