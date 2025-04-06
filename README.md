@@ -1,4 +1,4 @@
-# This README.md is not complete. Please ignore for now
+![SWCSG Logo](swcsg-readme-logo.png)
 
 # Static Webcomic Site Generator
 
